@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>Your Portal - Powered by APIMatic</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", sans-serif;
+    }
+    </style>
+    </head>
+    <body>
+        <div id="apimatic" data-theme="light" data-apikey="UWvH4d7OO4tm1MN19Gr1DY4k11SAzxF0_-um3owOSZjgNdotiaTur76l77u_OweK">
+        </div>
+        <script type="text/javascript" src="https://dxjs.apimatic.io/static/js/portal.v2.js">
+        </script>
+        <script>
+            window.onload = function(){
+            var container = "apimatic";
+            var containerElement = document.getElementById(container);
+            var apiKey = containerElement.getAttribute('data-apikey');
+            var theme = containerElement.getAttribute('data-theme');
+                        var options = {
+                container: container,
+                apiKey: apiKey,
+                baseTheme: theme,
+                loadAllDocsOnInit:false,
+                apiName:"PayPal Express Checkout",
+                allowedLanguages:[
+                                    "java_eclipse_jre_lib",
+                                    "java_gradle_android_lib",
+                                    "angular_javascript_lib",
+                                    "cs_portable_net_lib",
+                                    "go_generic_lib",
+                                    "node_javascript_lib",
+                                    "objc_cocoa_touch_ios_lib",
+                                    "php_generic_lib",
+                                    "python_generic_lib",
+                                    "ruby_generic_lib",
+                                    "docs-http"
+                                ],
+                customDocs:{
+                                    "java_eclipse_jre_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/java_eclipse_jre_lib.md",
+                                    "java_gradle_android_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/java_gradle_android_lib.md",
+                                    "angular_javascript_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/angular_javascript_lib.md",
+                                    "cs_portable_net_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/cs_portable_net_lib.md",
+                                    "go_generic_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/go_generic_lib.md",
+                                    "node_javascript_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/node_javascript_lib.md",
+                                    "objc_cocoa_touch_ios_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/objc_cocoa_touch_ios_lib.md",
+                                    "php_generic_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/php_generic_lib.md",
+                                    "python_generic_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/python_generic_lib.md",
+                                    "ruby_generic_lib":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/ruby_generic_lib.md",
+                                    "docs-http":"https://jewelsjacobs.github.io/paypal-express-checkout-api/docs/docs-http.md"
+                                },
+                themeOverrides: {
+                }
+            }
+            APIMaticDevPortal.show(options);
+            }
+        </script>
+    </body>
+</html>
