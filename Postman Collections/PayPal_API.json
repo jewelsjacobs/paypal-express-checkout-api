@@ -291,7 +291,7 @@
       "HTTPMethod": "POST",
       "Group": "Payment",
       "RequiresAuthentication": true,
-      "Route": "/payments/payment",
+      "Route": "/payments/payment/payment_id/execute",
       "Response": {
         "Optional": false,
         "Type": "Void",
@@ -870,20 +870,6 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "https://api.sandbox.paypal.com/v1/payment-experience/web-profilesRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -920,11 +906,6 @@
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
-            },
             {
               "IsNull": false,
               "Name": "Content-Type",
