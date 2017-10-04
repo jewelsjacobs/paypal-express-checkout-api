@@ -2125,6 +2125,7 @@
     "StoreTimezoneInformation": false,
     "UnderscoreNumbers": true
   },
+  "Errors": [],
   "TestGenSettings": {
     "Configuration": {},
     "TestTimeout": 30,
