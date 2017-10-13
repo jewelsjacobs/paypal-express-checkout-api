@@ -47,7 +47,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Form",
@@ -132,7 +131,7 @@
       "Description": "TODO: Add Description",
       "HTTPMethod": "POST",
       "Group": "Payment",
-      "RequiresAuthentication": true,
+      "RequiresAuthentication": false,
       "Route": "/payments/payment",
       "Response": {
         "Optional": false,
@@ -149,7 +148,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Body",
@@ -291,7 +289,7 @@
       "Description": "TODO: Add Description",
       "HTTPMethod": "POST",
       "Group": "Payment",
-      "RequiresAuthentication": true,
+      "RequiresAuthentication": false,
       "Route": "/payments/payment/payment_id/execute",
       "Response": {
         "Optional": false,
@@ -306,7 +304,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Body",
@@ -391,7 +388,7 @@
       "Description": "TODO: Add Description",
       "HTTPMethod": "POST",
       "Group": "Web Profiles",
-      "RequiresAuthentication": true,
+      "RequiresAuthentication": false,
       "Route": "/payment-experience/web-profiles",
       "Response": {
         "Optional": false,
@@ -406,7 +403,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Body",
@@ -491,7 +487,7 @@
       "Description": "TODO: Add Description",
       "HTTPMethod": "PUT",
       "Group": "Web Profiles",
-      "RequiresAuthentication": true,
+      "RequiresAuthentication": false,
       "Route": "/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
       "Response": {
         "Optional": false,
@@ -506,7 +502,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Body",
@@ -591,7 +586,7 @@
       "Description": "TODO: Add Description",
       "HTTPMethod": "PATCH",
       "Group": "Web Profiles",
-      "RequiresAuthentication": true,
+      "RequiresAuthentication": false,
       "Route": "/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
       "Response": {
         "Optional": false,
@@ -606,7 +601,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Body",
@@ -691,7 +685,7 @@
       "Description": "TODO: Add Description",
       "HTTPMethod": "GET",
       "Group": "Web Profiles",
-      "RequiresAuthentication": true,
+      "RequiresAuthentication": false,
       "Route": "/payment-experience/web-profiles",
       "Response": {
         "Optional": false,
@@ -706,7 +700,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Header",
@@ -772,7 +765,7 @@
       "Description": "TODO: Add Description",
       "HTTPMethod": "GET",
       "Group": "Web Profiles",
-      "RequiresAuthentication": true,
+      "RequiresAuthentication": false,
       "Route": "/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
       "Response": {
         "Optional": false,
@@ -787,7 +780,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Header",
@@ -853,7 +845,7 @@
       "Description": "TODO: Add Description",
       "HTTPMethod": "DELETE",
       "Group": "Web Profiles",
-      "RequiresAuthentication": true,
+      "RequiresAuthentication": false,
       "Route": "/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
       "Response": {
         "Optional": false,
@@ -868,7 +860,6 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "RequiredScopes": [],
       "Parameters": [
         {
           "ParamFormat": "Header",
