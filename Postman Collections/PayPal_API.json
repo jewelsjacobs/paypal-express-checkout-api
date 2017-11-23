@@ -29,7 +29,7 @@
   "Endpoints": [
     {
       "Name": "https://api.sandbox.paypal.com/v1/oauth2/token",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "POST",
       "Group": "Auth",
       "RequiresAuthentication": true,
@@ -95,7 +95,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/oauth2/token",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -128,7 +128,7 @@
     },
     {
       "Name": "https://api.sandbox.paypal.com/v1/payments/payment",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "POST",
       "Group": "Payment",
       "RequiresAuthentication": false,
@@ -196,7 +196,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/payments/payment",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -286,7 +286,7 @@
     },
     {
       "Name": "https://api.sandbox.paypal.com/v1/payments/payment/payment_id/execute",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "POST",
       "Group": "Payment",
       "RequiresAuthentication": false,
@@ -352,7 +352,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/payments/payment/payment_id/execute",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -385,7 +385,7 @@
     },
     {
       "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "POST",
       "Group": "Web Profiles",
       "RequiresAuthentication": false,
@@ -451,7 +451,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -484,7 +484,7 @@
     },
     {
       "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "PUT",
       "Group": "Web Profiles",
       "RequiresAuthentication": false,
@@ -550,7 +550,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -583,7 +583,7 @@
     },
     {
       "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "PATCH",
       "Group": "Web Profiles",
       "RequiresAuthentication": false,
@@ -649,7 +649,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id1",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -682,7 +682,7 @@
     },
     {
       "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "GET",
       "Group": "Web Profiles",
       "RequiresAuthentication": false,
@@ -734,7 +734,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles1",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -762,7 +762,7 @@
     },
     {
       "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "GET",
       "Group": "Web Profiles",
       "RequiresAuthentication": false,
@@ -814,7 +814,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id2",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -842,7 +842,7 @@
     },
     {
       "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-      "Description": "TODO: Add Description",
+      "Description": "",
       "HTTPMethod": "DELETE",
       "Group": "Web Profiles",
       "RequiresAuthentication": false,
@@ -894,7 +894,7 @@
       "TestCases": [
         {
           "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id3",
-          "Description": "TODO: Add Description",
+          "Description": "",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
