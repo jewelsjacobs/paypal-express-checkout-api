@@ -1,2125 +1,351 @@
 {
-  "Name": "PayPal API",
-  "BaseUri": "https://api.sandbox.paypal.com/v1",
-  "ServerConfiguration": {
-    "DefaultEnvironment": "production",
-    "DefaultServer": "Server 1",
-    "Environments": [
-      {
-        "Name": "production",
-        "Servers": [
-          {
-            "Name": "Server 1",
-            "Url": "https://api.sandbox.paypal.com/v1"
-          }
-        ]
-      }
-    ],
-    "Parameters": []
+  "info": {
+    "name": "PayPal API",
+    "_postman_id": "619630-a0f0663c-4ae9-ab03-6621-cba996c294fb",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
-  "Description": "TODO: Add Description",
-  "Version": "1.0",
-  "AdditionalHeaders": [],
-  "Authentication": {
-    "Type": "OAuth_v2_BearerToken",
-    "AuthType": "OAuth_v2_BearerToken",
-    "Parameters": [],
-    "Scopes": []
-  },
-  "Endpoints": [
+  "item": [
     {
-      "Name": "https://api.sandbox.paypal.com/v1/oauth2/token",
-      "Description": "",
-      "HTTPMethod": "POST",
-      "Group": "Auth",
-      "RequiresAuthentication": true,
-      "Route": "/oauth2/token",
-      "Response": {
-        "Optional": false,
-        "Type": "Void",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
+      "_postman_id": "619630-afdc0351-7d07-9f48-e19d-238d77d0df14",
+      "name": "Auth",
+      "description": "APIs for PayPal's express checkout",
+      "item": [
         {
-          "ParamFormat": "Form",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "client_credentials",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "grant_type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/x-www-form-urlencoded",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAEdj02-hJo9IRHplhexhiaSemJuqaiDIEntXOHj3GFp-HpCxUB6avZMFCatQxEHPckrX-nj6G40rYAlCvSZ70Z_HLzx6A",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
+          "_postman_id": "619630-0cd023d9-17ef-253b-4149-bc55f6bfcd9b",
+          "name": "https://api.sandbox.paypal.com/v1/oauth2/token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAEdj02-hJo9IRHplhexhiaSemJuqaiDIEntXOHj3GFp-HpCxUB6avZMFCatQxEHPckrX-nj6G40rYAlCvSZ70Z_HLzx6A"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "description": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://api.sandbox.paypal.com/v1/oauth2/token",
+            "description": ""
+          },
+          "response": []
         }
-      ],
-      "Errors": [],
-      "TestCases": [
+      ]
+    },
+    {
+      "_postman_id": "619630-eb11b498-33c0-bd94-a4e2-95a581430017",
+      "name": "Payment",
+      "description": "",
+      "item": [
         {
-          "Name": "https://api.sandbox.paypal.com/v1/oauth2/token",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "grant_type",
-              "Value": "client_credentials"
+          "_postman_id": "619630-69cb25a6-08c1-75f2-2593-8c845cbd12e1",
+          "name": "https://api.sandbox.paypal.com/v1/payments/payment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}"
             },
+            "url": "https://api.sandbox.paypal.com/v1/payments/payment",
+            "description": ""
+          },
+          "response": [
             {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/x-www-form-urlencoded"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAEdj02-hJo9IRHplhexhiaSemJuqaiDIEntXOHj3GFp-HpCxUB6avZMFCatQxEHPckrX-nj6G40rYAlCvSZ70Z_HLzx6A"
+              "id": "619630-32cd6357-f603-4758-ce06-8de77eb3ea59",
+              "name": "https://api.sandbox.paypal.com/v1/payments/payment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}"
+                },
+                "url": "https://api.sandbox.paypal.com/v1/payments/payment"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "name": "access-control-allow-origin",
+                  "key": "access-control-allow-origin",
+                  "value": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+                  "description": ""
+                },
+                {
+                  "name": "access-control-expose-headers",
+                  "key": "access-control-expose-headers",
+                  "value": "False",
+                  "description": ""
+                },
+                {
+                  "name": "connection",
+                  "key": "connection",
+                  "value": "close",
+                  "description": ""
+                },
+                {
+                  "name": "content-language",
+                  "key": "content-language",
+                  "value": "en_US",
+                  "description": ""
+                },
+                {
+                  "name": "content-length",
+                  "key": "content-length",
+                  "value": "1545",
+                  "description": ""
+                },
+                {
+                  "name": "content-type",
+                  "key": "content-type",
+                  "value": "application/json",
+                  "description": ""
+                },
+                {
+                  "name": "date",
+                  "key": "date",
+                  "value": "Wed, 06 Sep 2017 20:23:23 GMT",
+                  "description": ""
+                },
+                {
+                  "name": "http_x_pp_az_locator",
+                  "key": "http_x_pp_az_locator",
+                  "value": "sandbox.slc",
+                  "description": ""
+                },
+                {
+                  "name": "paypal-debug-id",
+                  "key": "paypal-debug-id",
+                  "value": "f887251d434e0, f887251d434e0",
+                  "description": ""
+                },
+                {
+                  "name": "server",
+                  "key": "server",
+                  "value": "Apache",
+                  "description": ""
+                },
+                {
+                  "name": "vary",
+                  "key": "vary",
+                  "value": "Authorization",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2443",
+              "body": "{\"id\":\"PAY-4DB953646Y903031CLGYFSPI\",\"intent\":\"sale\",\"state\":\"created\",\"payer\":{\"payment_method\":\"paypal\"},\"transactions\":[{\"amount\":{\"total\":\"30.11\",\"currency\":\"USD\",\"details\":{\"subtotal\":\"30.00\",\"tax\":\"0.07\",\"shipping\":\"0.03\",\"insurance\":\"0.01\",\"handling_fee\":\"1.00\",\"shipping_discount\":\"-1.00\"}},\"description\":\"The payment transaction description.\",\"custom\":\"EBAY_EMS_90048630024435\",\"invoice_number\":\"48787589673\",\"soft_descriptor\":\"ECHI5786786\",\"payment_options\":{\"allowed_payment_method\":\"INSTANT_FUNDING_SOURCE\",\"recurring_flag\":false,\"skip_fmf\":false},\"item_list\":{\"items\":[{\"name\":\"hat\",\"sku\":\"1\",\"description\":\"Brown hat.\",\"price\":\"3.00\",\"currency\":\"USD\",\"tax\":\"0.01\",\"quantity\":5},{\"name\":\"handbag\",\"sku\":\"product34\",\"description\":\"Black handbag.\",\"price\":\"15.00\",\"currency\":\"USD\",\"tax\":\"0.02\",\"quantity\":1}],\"shipping_address\":{\"recipient_name\":\"Brian Robinson\",\"line1\":\"4th Floor\",\"line2\":\"Unit #34\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\",\"phone\":\"011862212345678\"}},\"related_resources\":[]}],\"note_to_payer\":\"Contact us for any questions on your order.\",\"create_time\":\"2017-09-06T20:23:25Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAY-4DB953646Y903031CLGYFSPI\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-47R02810X7326464K\",\"rel\":\"approval_url\",\"method\":\"REDIRECT\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAY-4DB953646Y903031CLGYFSPI/execute\",\"rel\":\"execute\",\"method\":\"POST\"}]}"
             }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payments/payment",
-      "Description": "",
-      "HTTPMethod": "POST",
-      "Group": "Payment",
-      "RequiresAuthentication": false,
-      "Route": "/payments/payment",
-      "Response": {
-        "Optional": false,
-        "Type": "https://api.sandbox.paypal.com/v1/payments/paymentResponse",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "Example": "{\"id\":\"PAY-4DB953646Y903031CLGYFSPI\",\"intent\":\"sale\",\"state\":\"created\",\"payer\":{\"payment_method\":\"paypal\"},\"transactions\":[{\"amount\":{\"total\":\"30.11\",\"currency\":\"USD\",\"details\":{\"subtotal\":\"30.00\",\"tax\":\"0.07\",\"shipping\":\"0.03\",\"insurance\":\"0.01\",\"handling_fee\":\"1.00\",\"shipping_discount\":\"-1.00\"}},\"description\":\"The payment transaction description.\",\"custom\":\"EBAY_EMS_90048630024435\",\"invoice_number\":\"48787589673\",\"soft_descriptor\":\"ECHI5786786\",\"payment_options\":{\"allowed_payment_method\":\"INSTANT_FUNDING_SOURCE\",\"recurring_flag\":false,\"skip_fmf\":false},\"item_list\":{\"items\":[{\"name\":\"hat\",\"sku\":\"1\",\"description\":\"Brown hat.\",\"price\":\"3.00\",\"currency\":\"USD\",\"tax\":\"0.01\",\"quantity\":5},{\"name\":\"handbag\",\"sku\":\"product34\",\"description\":\"Black handbag.\",\"price\":\"15.00\",\"currency\":\"USD\",\"tax\":\"0.02\",\"quantity\":1}],\"shipping_address\":{\"recipient_name\":\"Brian Robinson\",\"line1\":\"4th Floor\",\"line2\":\"Unit #34\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\",\"phone\":\"011862212345678\"}},\"related_resources\":[]}],\"note_to_payer\":\"Contact us for any questions on your order.\",\"create_time\":\"2017-09-06T20:23:25Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAY-4DB953646Y903031CLGYFSPI\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-47R02810X7326464K\",\"rel\":\"approval_url\",\"method\":\"REDIRECT\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAY-4DB953646Y903031CLGYFSPI/execute\",\"rel\":\"execute\",\"method\":\"POST\"}]}",
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "ResponseCode": 201,
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "https://api.sandbox.paypal.com/v1/payments/paymentRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
+          ]
         },
         {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/json",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
-      "Errors": [],
-      "TestCases": [
-        {
-          "Name": "https://api.sandbox.paypal.com/v1/payments/payment",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}"
+          "_postman_id": "619630-ace5ad87-26e7-0964-f9ca-e7fcdabac07c",
+          "name": "https://api.sandbox.paypal.com/v1/payments/payment/payment_id/execute",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}"
             },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
-            }
-          ],
-          "ExpectedStatus": "201",
-          "ExpectedHeaders": [
-            {
-              "CheckValue": false,
-              "Name": "access-control-allow-origin",
-              "Value": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop"
-            },
-            {
-              "CheckValue": false,
-              "Name": "access-control-expose-headers",
-              "Value": "False"
-            },
-            {
-              "CheckValue": false,
-              "Name": "connection",
-              "Value": "close"
-            },
-            {
-              "CheckValue": false,
-              "Name": "content-language",
-              "Value": "en_US"
-            },
-            {
-              "CheckValue": false,
-              "Name": "content-length",
-              "Value": "1545"
-            },
-            {
-              "CheckValue": false,
-              "Name": "content-type",
-              "Value": "application/json"
-            },
-            {
-              "CheckValue": false,
-              "Name": "date",
-              "Value": "Wed, 06 Sep 2017 20:23:23 GMT"
-            },
-            {
-              "CheckValue": false,
-              "Name": "http_x_pp_az_locator",
-              "Value": "sandbox.slc"
-            },
-            {
-              "CheckValue": false,
-              "Name": "paypal-debug-id",
-              "Value": "f887251d434e0, f887251d434e0"
-            },
-            {
-              "CheckValue": false,
-              "Name": "server",
-              "Value": "Apache"
-            },
-            {
-              "CheckValue": false,
-              "Name": "vary",
-              "Value": "Authorization"
-            }
-          ],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBody": "{\"id\":\"PAY-4DB953646Y903031CLGYFSPI\",\"intent\":\"sale\",\"state\":\"created\",\"payer\":{\"payment_method\":\"paypal\"},\"transactions\":[{\"amount\":{\"total\":\"30.11\",\"currency\":\"USD\",\"details\":{\"subtotal\":\"30.00\",\"tax\":\"0.07\",\"shipping\":\"0.03\",\"insurance\":\"0.01\",\"handling_fee\":\"1.00\",\"shipping_discount\":\"-1.00\"}},\"description\":\"The payment transaction description.\",\"custom\":\"EBAY_EMS_90048630024435\",\"invoice_number\":\"48787589673\",\"soft_descriptor\":\"ECHI5786786\",\"payment_options\":{\"allowed_payment_method\":\"INSTANT_FUNDING_SOURCE\",\"recurring_flag\":false,\"skip_fmf\":false},\"item_list\":{\"items\":[{\"name\":\"hat\",\"sku\":\"1\",\"description\":\"Brown hat.\",\"price\":\"3.00\",\"currency\":\"USD\",\"tax\":\"0.01\",\"quantity\":5},{\"name\":\"handbag\",\"sku\":\"product34\",\"description\":\"Black handbag.\",\"price\":\"15.00\",\"currency\":\"USD\",\"tax\":\"0.02\",\"quantity\":1}],\"shipping_address\":{\"recipient_name\":\"Brian Robinson\",\"line1\":\"4th Floor\",\"line2\":\"Unit #34\",\"city\":\"San Jose\",\"state\":\"CA\",\"postal_code\":\"95131\",\"country_code\":\"US\",\"phone\":\"011862212345678\"}},\"related_resources\":[]}],\"note_to_payer\":\"Contact us for any questions on your order.\",\"create_time\":\"2017-09-06T20:23:25Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAY-4DB953646Y903031CLGYFSPI\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-47R02810X7326464K\",\"rel\":\"approval_url\",\"method\":\"REDIRECT\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAY-4DB953646Y903031CLGYFSPI/execute\",\"rel\":\"execute\",\"method\":\"POST\"}]}",
-          "ExpectedBodyMatchMode": "RAW",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payments/payment/payment_id/execute",
-      "Description": "",
-      "HTTPMethod": "POST",
-      "Group": "Payment",
-      "RequiresAuthentication": false,
-      "Route": "/payments/payment/payment_id/execute",
-      "Response": {
-        "Optional": false,
-        "Type": "Void",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "https://api.sandbox.paypal.com/v1/payments/paymentRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/json",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
-      "Errors": [],
-      "TestCases": [
-        {
-          "Name": "https://api.sandbox.paypal.com/v1/payments/payment/payment_id/execute",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}"
-            },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
-      "Description": "",
-      "HTTPMethod": "POST",
-      "Group": "Web Profiles",
-      "RequiresAuthentication": false,
-      "Route": "/payment-experience/web-profiles",
-      "Response": {
-        "Optional": false,
-        "Type": "Void",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "https://api.sandbox.paypal.com/v1/payment-experience/web-profilesRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/json",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
-      "Errors": [],
-      "TestCases": [
-        {
-          "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
-            },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-      "Description": "",
-      "HTTPMethod": "PUT",
-      "Group": "Web Profiles",
-      "RequiresAuthentication": false,
-      "Route": "/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
-      "Response": {
-        "Optional": false,
-        "Type": "Void",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "https://api.sandbox.paypal.com/v1/payment-experience/web-profilesRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/json",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
-      "Errors": [],
-      "TestCases": [
-        {
-          "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
-            },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-      "Description": "",
-      "HTTPMethod": "PATCH",
-      "Group": "Web Profiles",
-      "RequiresAuthentication": false,
-      "Route": "/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
-      "Response": {
-        "Optional": false,
-        "Type": "Void",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-idRequest38",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "[\n  {\n  \"op\": \"add\",\n  \"path\": \"/presentation/brand_name\",\n  \"value\": \"new_brand_name\"\n  },\n  {\n  \"op\": \"remove\",\n  \"path\": \"/flow_config/landing_page_type\"\n  }\n]",
-          "IsArray": true,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/json",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
-      "Errors": [],
-      "TestCases": [
-        {
-          "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id1",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "[\n  {\n  \"op\": \"add\",\n  \"path\": \"/presentation/brand_name\",\n  \"value\": \"new_brand_name\"\n  },\n  {\n  \"op\": \"remove\",\n  \"path\": \"/flow_config/landing_page_type\"\n  }\n]"
-            },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
-      "Description": "",
-      "HTTPMethod": "GET",
-      "Group": "Web Profiles",
-      "RequiresAuthentication": false,
-      "Route": "/payment-experience/web-profiles",
-      "Response": {
-        "Optional": false,
-        "Type": "Void",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/json",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
-      "Errors": [],
-      "TestCases": [
-        {
-          "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles1",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-      "Description": "",
-      "HTTPMethod": "GET",
-      "Group": "Web Profiles",
-      "RequiresAuthentication": false,
-      "Route": "/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
-      "Response": {
-        "Optional": false,
-        "Type": "Void",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/json",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
-      "Errors": [],
-      "TestCases": [
-        {
-          "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id2",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
-      "Description": "",
-      "HTTPMethod": "DELETE",
-      "Group": "Web Profiles",
-      "RequiresAuthentication": false,
-      "Route": "/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
-      "Response": {
-        "Optional": false,
-        "Type": "Void",
-        "Constant": false,
-        "IsStream": false,
-        "IsAttribute": false,
-        "IsArray": false,
-        "IsMap": false,
-        "Name": "Response"
-      },
-      "HasOptionalQueryParams": false,
-      "HasOptionalFieldParams": false,
-      "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "application/json",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Content-Type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
-      "Errors": [],
-      "TestCases": [
-        {
-          "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id3",
-          "Description": "",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
-      "WrapBodyInObject": false
-    }
-  ],
-  "CustomTypes": [
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payments/paymentRequest",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "intent",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Payer",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "payer",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Transaction",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": true,
-          "IsMap": false,
-          "Name": "transactions",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "note_to_payer",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "RedirectUrls",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "redirect_urls",
-          "Description": "",
-          "DefaultValue": ""
+            "url": "https://api.sandbox.paypal.com/v1/payments/payment/payment_id/execute",
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
     {
-      "Name": "Payer",
-      "ImplementationType": "Structure",
-      "Fields": [
+      "_postman_id": "619630-1ecf5026-55d6-f5ce-cbc1-7c0c10c73b67",
+      "name": "Web Profiles",
+      "description": "",
+      "item": [
         {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "payment_method",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Transaction",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "Amount",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "amount",
-          "Description": "",
-          "DefaultValue": ""
+          "_postman_id": "619630-f92a5e56-67e9-9509-aade-7406bd05a3f5",
+          "name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
+            },
+            "url": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
+            "description": ""
+          },
+          "response": []
         },
         {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "description",
-          "Description": "",
-          "DefaultValue": ""
+          "_postman_id": "619630-162430ec-14ab-d5d4-abcb-0464aa247ab5",
+          "name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
+            },
+            "url": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
+            "description": ""
+          },
+          "response": []
         },
         {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "custom",
-          "Description": "",
-          "DefaultValue": ""
+          "_postman_id": "619630-24c4db02-f282-7363-4bff-cd0b635eb93b",
+          "name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n  \"op\": \"add\",\n  \"path\": \"/presentation/brand_name\",\n  \"value\": \"new_brand_name\"\n  },\n  {\n  \"op\": \"remove\",\n  \"path\": \"/flow_config/landing_page_type\"\n  }\n]"
+            },
+            "url": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
+            "description": ""
+          },
+          "response": []
         },
         {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "invoice_number",
-          "Description": "",
-          "DefaultValue": ""
+          "_postman_id": "619630-54379731-ff70-2d41-c4c8-5ac0ecb73e20",
+          "name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
+            },
+            "url": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles",
+            "description": ""
+          },
+          "response": []
         },
         {
-          "Optional": false,
-          "Type": "PaymentOptions",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "payment_options",
-          "Description": "",
-          "DefaultValue": ""
+          "_postman_id": "619630-a0e2d425-038a-e681-d3d5-410a1fa3d342",
+          "name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
+            },
+            "url": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
+            "description": ""
+          },
+          "response": []
         },
         {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "soft_descriptor",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "ItemList",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "item_list",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Amount",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "total",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "currency",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Details",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "details",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Details",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "subtotal",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "tax",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "shipping",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "handling_fee",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "shipping_discount",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "insurance",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "PaymentOptions",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "allowed_payment_method",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "ItemList",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "Item",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": true,
-          "IsMap": false,
-          "Name": "items",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "ShippingAddress",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "shipping_address",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Item",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "name",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "description",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "quantity",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "price",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "tax",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "sku",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "currency",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "ShippingAddress",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "recipient_name",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "line1",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "line2",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "city",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "country_code",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "postal_code",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "phone",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "state",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "RedirectUrls",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "return_url",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "cancel_url",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payments/paymentResponse",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "id",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "intent",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "state",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Payer",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "payer",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Transaction12",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": true,
-          "IsMap": false,
-          "Name": "transactions",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "note_to_payer",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "create_time",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Link",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": true,
-          "IsMap": false,
-          "Name": "links",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Transaction12",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "Amount",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "amount",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "description",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "custom",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "invoice_number",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "soft_descriptor",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "PaymentOptions15",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "payment_options",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "ItemList16",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "item_list",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": true,
-          "IsMap": false,
-          "Name": "related_resources",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "PaymentOptions15",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "allowed_payment_method",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Boolean",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "recurring_flag",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Boolean",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "skip_fmf",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "ItemList16",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "Item17",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": true,
-          "IsMap": false,
-          "Name": "items",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "ShippingAddress",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "shipping_address",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Item17",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "name",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "sku",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "description",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "price",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "currency",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "tax",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Number",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "quantity",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Link",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "href",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "rel",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "method",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profilesRequest",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "name",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Presentation",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "presentation",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "InputFields",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "input_fields",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "FlowConfig",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "flow_config",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Presentation",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "logo_image",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "InputFields",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "Number",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "no_shipping",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Number",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "address_override",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "FlowConfig",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "landing_page_type",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "bank_txn_pending_url",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-idRequest38",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "op",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "path",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": true,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "value",
-          "Description": "",
-          "DefaultValue": ""
+          "_postman_id": "619630-20fab898-7914-bc2e-5ff7-96ebd2f71bc6",
+          "name": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/profile-id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer A21AAHdZ73bsQUjOrlAzfucLwq2janvn7EKS0heMUHLsurdS0aZLLGJMB4LC2MHo6SuXp0oDilSM4z4xsGpUwASDBW16BUbfw"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/XP-WF6S-NFR5-WJ3H-7FP3",
+            "description": ""
+          },
+          "response": []
         }
       ]
     }
-  ],
-  "CodeGenSettings": {
-    "SynchronyMode": 0,
-    "ModelSerializationScheme": "Json",
-    "ArraySerialization": "Indexed",
-    "Nullify404": false,
-    "UseHttpMethodPrefix": true,
-    "UseModelPrefix": false,
-    "UseExceptionPrefix": true,
-    "UseEnumPrefix": true,
-    "UseControllerPrefix": true,
-    "UseConstructorsForConfig": false,
-    "Timeout": 0.0,
-    "AndroidUseAppManifest": false,
-    "iOSUseAppInfoPlist": false,
-    "iOSGenerateCoreData": false,
-    "CollapseParamsToArray": false,
-    "RunscopeEnabled": false,
-    "AndroidHttpClient": "UNIREST",
-    "ObjCHttpClient": "UNIREST",
-    "CSharpHttpClient": "UNIREST",
-    "NodeHttpClient": "NODE_REQUEST",
-    "JavaUsePropertiesConfig": false,
-    "PHPHttpClient": "UNIREST",
-    "EnablePHPComposerVersionString": false,
-    "EnableAdditionalModelProperties": false,
-    "PreserveParameterOrder": true,
-    "ValidateRequiredParameters": false,
-    "AppendContentHeaders": true,
-    "GenerateInterfaces": false,
-    "UseCommonSDKLibrary": false,
-    "ParameterArrayFormat": 2,
-    "SecurityProtocols": [
-      "Ssl3",
-      "Tls"
-    ],
-    "GenerateTravisConfig": false,
-    "GenerateCircleConfig": false,
-    "GenerateAppveyorConfig": false,
-    "GenerateJenkinsConfig": false,
-    "EnableLogging": false,
-    "EnableHttpCache": false,
-    "Retries": 0,
-    "RetryInterval": 1.0,
-    "GenerateAdvancedDocs": true,
-    "StoreTimezoneInformation": false,
-    "UnderscoreNumbers": true
-  },
-  "Errors": [],
-  "TestGenSettings": {
-    "Configuration": {},
-    "TestTimeout": 30,
-    "PrecisionDelta": 0.01
-  }
+  ]
 }
