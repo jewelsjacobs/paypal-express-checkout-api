@@ -2195,7 +2195,8 @@
     "RetryInterval": 1.0,
     "GenerateAdvancedDocs": true,
     "StoreTimezoneInformation": false,
-    "UnderscoreNumbers": true
+    "UnderscoreNumbers": true,
+    "UseSingletonPattern": true
   },
   "Errors": [],
   "TestGenSettings": {
