@@ -139,7 +139,7 @@
       "Route": "/payments/payment",
       "Response": {
         "Optional": false,
-        "Type": "https://api.sandbox.paypal.com/v1/payments/paymentResponse",
+        "Type": "https://api.sandbox.paypal.com/v1/payments/payment",
         "Constant": false,
         "IsStream": false,
         "IsAttribute": false,
@@ -147,7 +147,7 @@
         "Nullable": false,
         "IsArray": false,
         "IsMap": false,
-        "Name": "Response"
+        "Name": "https://api.sandbox.paypal.com/v1/payments/payment"
       },
       "ResponseCode": 201,
       "HasOptionalQueryParams": false,
@@ -1644,7 +1644,7 @@
       "ExampleValue": "{\"return_url\":\"https://sandbox.paypal.com\",\"cancel_url\":\"https://sandbox.paypal.com\"}"
     },
     {
-      "Name": "https://api.sandbox.paypal.com/v1/payments/paymentResponse",
+      "Name": "https://api.sandbox.paypal.com/v1/payments/payment",
       "ImplementationType": "Structure",
       "Fields": [
         {
