@@ -24,7 +24,8 @@
     "Type": "OAuth_v2_BearerToken",
     "AuthType": "OAuth_v2_BearerToken",
     "Parameters": [],
-    "Scopes": []
+    "Scopes": [],
+    "ParamFormats": {}
   },
   "Endpoints": [
     {
@@ -161,7 +162,7 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}",
+          "Example": "{\"intent\":\"sale\",\"payer\":{\"payment_method\":\"paypal\"},\"transactions\":[{\"amount\":{\"total\":\"30.11\",\"currency\":\"USD\",\"details\":{\"subtotal\":\"30.00\",\"tax\":\"0.07\",\"shipping\":\"0.03\",\"handling_fee\":\"1.00\",\"shipping_discount\":\"-1.00\",\"insurance\":\"0.01\"}},\"description\":\"The payment transaction description.\",\"custom\":\"EBAY_EMS_90048630024435\",\"invoice_number\":\"48787589673\",\"payment_options\":{\"allowed_payment_method\":\"INSTANT_FUNDING_SOURCE\"},\"soft_descriptor\":\"ECHI5786786\",\"item_list\":{\"items\":[{\"name\":\"hat\",\"description\":\"Brown hat.\",\"quantity\":\"5\",\"price\":\"3\",\"tax\":\"0.01\",\"sku\":\"1\",\"currency\":\"USD\"},{\"name\":\"handbag\",\"description\":\"Black handbag.\",\"quantity\":\"1\",\"price\":\"15\",\"tax\":\"0.02\",\"sku\":\"product34\",\"currency\":\"USD\"}],\"shipping_address\":{\"recipient_name\":\"Brian Robinson\",\"line1\":\"4th Floor\",\"line2\":\"Unit #34\",\"city\":\"San Jose\",\"country_code\":\"US\",\"postal_code\":\"95131\",\"phone\":\"011862212345678\",\"state\":\"CA\"}}}],\"note_to_payer\":\"Contact us for any questions on your order.\",\"redirect_urls\":{\"return_url\":\"https://sandbox.paypal.com\",\"cancel_url\":\"https://sandbox.paypal.com\"}}",
           "Nullable": false,
           "IsArray": false,
           "IsMap": false,
@@ -211,7 +212,7 @@
             {
               "IsNull": false,
               "Name": "Body",
-              "Value": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}"
+              "Value": "{\"intent\":\"sale\",\"payer\":{\"payment_method\":\"paypal\"},\"transactions\":[{\"amount\":{\"total\":\"30.11\",\"currency\":\"USD\",\"details\":{\"subtotal\":\"30.00\",\"tax\":\"0.07\",\"shipping\":\"0.03\",\"handling_fee\":\"1.00\",\"shipping_discount\":\"-1.00\",\"insurance\":\"0.01\"}},\"description\":\"The payment transaction description.\",\"custom\":\"EBAY_EMS_90048630024435\",\"invoice_number\":\"48787589673\",\"payment_options\":{\"allowed_payment_method\":\"INSTANT_FUNDING_SOURCE\"},\"soft_descriptor\":\"ECHI5786786\",\"item_list\":{\"items\":[{\"name\":\"hat\",\"description\":\"Brown hat.\",\"quantity\":\"5\",\"price\":\"3\",\"tax\":\"0.01\",\"sku\":\"1\",\"currency\":\"USD\"},{\"name\":\"handbag\",\"description\":\"Black handbag.\",\"quantity\":\"1\",\"price\":\"15\",\"tax\":\"0.02\",\"sku\":\"product34\",\"currency\":\"USD\"}],\"shipping_address\":{\"recipient_name\":\"Brian Robinson\",\"line1\":\"4th Floor\",\"line2\":\"Unit #34\",\"city\":\"San Jose\",\"country_code\":\"US\",\"postal_code\":\"95131\",\"phone\":\"011862212345678\",\"state\":\"CA\"}}}],\"note_to_payer\":\"Contact us for any questions on your order.\",\"redirect_urls\":{\"return_url\":\"https://sandbox.paypal.com\",\"cancel_url\":\"https://sandbox.paypal.com\"}}"
             },
             {
               "IsNull": false,
@@ -321,7 +322,7 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}",
+          "Example": "{\"intent\":\"sale\",\"payer\":{\"payment_method\":\"paypal\"},\"transactions\":[{\"amount\":{\"total\":\"30.11\",\"currency\":\"USD\",\"details\":{\"subtotal\":\"30.00\",\"tax\":\"0.07\",\"shipping\":\"0.03\",\"handling_fee\":\"1.00\",\"shipping_discount\":\"-1.00\",\"insurance\":\"0.01\"}},\"description\":\"The payment transaction description.\",\"custom\":\"EBAY_EMS_90048630024435\",\"invoice_number\":\"48787589673\",\"payment_options\":{\"allowed_payment_method\":\"INSTANT_FUNDING_SOURCE\"},\"soft_descriptor\":\"ECHI5786786\",\"item_list\":{\"items\":[{\"name\":\"hat\",\"description\":\"Brown hat.\",\"quantity\":\"5\",\"price\":\"3\",\"tax\":\"0.01\",\"sku\":\"1\",\"currency\":\"USD\"},{\"name\":\"handbag\",\"description\":\"Black handbag.\",\"quantity\":\"1\",\"price\":\"15\",\"tax\":\"0.02\",\"sku\":\"product34\",\"currency\":\"USD\"}],\"shipping_address\":{\"recipient_name\":\"Brian Robinson\",\"line1\":\"4th Floor\",\"line2\":\"Unit #34\",\"city\":\"San Jose\",\"country_code\":\"US\",\"postal_code\":\"95131\",\"phone\":\"011862212345678\",\"state\":\"CA\"}}}],\"note_to_payer\":\"Contact us for any questions on your order.\",\"redirect_urls\":{\"return_url\":\"https://sandbox.paypal.com\",\"cancel_url\":\"https://sandbox.paypal.com\"}}",
           "Nullable": false,
           "IsArray": false,
           "IsMap": false,
@@ -371,7 +372,7 @@
             {
               "IsNull": false,
               "Name": "Body",
-              "Value": "{\n  \"intent\": \"sale\",\n  \"payer\": {\n  \"payment_method\": \"paypal\"\n  },\n  \"transactions\": [\n  {\n    \"amount\": {\n    \"total\": \"30.11\",\n    \"currency\": \"USD\",\n    \"details\": {\n      \"subtotal\": \"30.00\",\n      \"tax\": \"0.07\",\n      \"shipping\": \"0.03\",\n      \"handling_fee\": \"1.00\",\n      \"shipping_discount\": \"-1.00\",\n      \"insurance\": \"0.01\"\n    }\n    },\n    \"description\": \"The payment transaction description.\",\n    \"custom\": \"EBAY_EMS_90048630024435\",\n    \"invoice_number\": \"48787589673\",\n    \"payment_options\": {\n    \"allowed_payment_method\": \"INSTANT_FUNDING_SOURCE\"\n    },\n    \"soft_descriptor\": \"ECHI5786786\",\n    \"item_list\": {\n    \"items\": [\n      {\n      \"name\": \"hat\",\n      \"description\": \"Brown hat.\",\n      \"quantity\": \"5\",\n      \"price\": \"3\",\n      \"tax\": \"0.01\",\n      \"sku\": \"1\",\n      \"currency\": \"USD\"\n      },\n      {\n      \"name\": \"handbag\",\n      \"description\": \"Black handbag.\",\n      \"quantity\": \"1\",\n      \"price\": \"15\",\n      \"tax\": \"0.02\",\n      \"sku\": \"product34\",\n      \"currency\": \"USD\"\n      }\n    ],\n    \"shipping_address\": {\n      \"recipient_name\": \"Brian Robinson\",\n      \"line1\": \"4th Floor\",\n      \"line2\": \"Unit #34\",\n      \"city\": \"San Jose\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"95131\",\n      \"phone\": \"011862212345678\",\n      \"state\": \"CA\"\n    }\n    }\n  }\n  ],\n  \"note_to_payer\": \"Contact us for any questions on your order.\",\n  \"redirect_urls\": {\n  \"return_url\": \"https://sandbox.paypal.com\",\n  \"cancel_url\": \"https://sandbox.paypal.com\"\n  }\n}"
+              "Value": "{\"intent\":\"sale\",\"payer\":{\"payment_method\":\"paypal\"},\"transactions\":[{\"amount\":{\"total\":\"30.11\",\"currency\":\"USD\",\"details\":{\"subtotal\":\"30.00\",\"tax\":\"0.07\",\"shipping\":\"0.03\",\"handling_fee\":\"1.00\",\"shipping_discount\":\"-1.00\",\"insurance\":\"0.01\"}},\"description\":\"The payment transaction description.\",\"custom\":\"EBAY_EMS_90048630024435\",\"invoice_number\":\"48787589673\",\"payment_options\":{\"allowed_payment_method\":\"INSTANT_FUNDING_SOURCE\"},\"soft_descriptor\":\"ECHI5786786\",\"item_list\":{\"items\":[{\"name\":\"hat\",\"description\":\"Brown hat.\",\"quantity\":\"5\",\"price\":\"3\",\"tax\":\"0.01\",\"sku\":\"1\",\"currency\":\"USD\"},{\"name\":\"handbag\",\"description\":\"Black handbag.\",\"quantity\":\"1\",\"price\":\"15\",\"tax\":\"0.02\",\"sku\":\"product34\",\"currency\":\"USD\"}],\"shipping_address\":{\"recipient_name\":\"Brian Robinson\",\"line1\":\"4th Floor\",\"line2\":\"Unit #34\",\"city\":\"San Jose\",\"country_code\":\"US\",\"postal_code\":\"95131\",\"phone\":\"011862212345678\",\"state\":\"CA\"}}}],\"note_to_payer\":\"Contact us for any questions on your order.\",\"redirect_urls\":{\"return_url\":\"https://sandbox.paypal.com\",\"cancel_url\":\"https://sandbox.paypal.com\"}}"
             },
             {
               "IsNull": false,
@@ -424,7 +425,7 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}",
+          "Example": "{\"name\":\"ebayProfile\",\"presentation\":{\"logo_image\":\"http://www.ebay.com\"},\"input_fields\":{\"no_shipping\":1,\"address_override\":1},\"flow_config\":{\"landing_page_type\":\"billing\",\"bank_txn_pending_url\":\"http://www.ebay.com\"}}",
           "Nullable": false,
           "IsArray": false,
           "IsMap": false,
@@ -474,7 +475,7 @@
             {
               "IsNull": false,
               "Name": "Body",
-              "Value": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
+              "Value": "{\"name\":\"ebayProfile\",\"presentation\":{\"logo_image\":\"http://www.ebay.com\"},\"input_fields\":{\"no_shipping\":1,\"address_override\":1},\"flow_config\":{\"landing_page_type\":\"billing\",\"bank_txn_pending_url\":\"http://www.ebay.com\"}}"
             },
             {
               "IsNull": false,
@@ -527,7 +528,7 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}",
+          "Example": "{\"name\":\"ebayProfile\",\"presentation\":{\"logo_image\":\"http://www.ebay.com\"},\"input_fields\":{\"no_shipping\":1,\"address_override\":1},\"flow_config\":{\"landing_page_type\":\"billing\",\"bank_txn_pending_url\":\"http://www.ebay.com\"}}",
           "Nullable": false,
           "IsArray": false,
           "IsMap": false,
@@ -577,7 +578,7 @@
             {
               "IsNull": false,
               "Name": "Body",
-              "Value": "{\n  \"name\": \"ebayProfile\",\n  \"presentation\": {\n  \"logo_image\": \"http://www.ebay.com\"\n  },\n  \"input_fields\": {\n  \"no_shipping\": 1,\n  \"address_override\": 1\n  },\n  \"flow_config\": {\n  \"landing_page_type\": \"billing\",\n  \"bank_txn_pending_url\": \"http://www.ebay.com\"\n  }\n}"
+              "Value": "{\"name\":\"ebayProfile\",\"presentation\":{\"logo_image\":\"http://www.ebay.com\"},\"input_fields\":{\"no_shipping\":1,\"address_override\":1},\"flow_config\":{\"landing_page_type\":\"billing\",\"bank_txn_pending_url\":\"http://www.ebay.com\"}}"
             },
             {
               "IsNull": false,
@@ -630,7 +631,7 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "[\n  {\n  \"op\": \"add\",\n  \"path\": \"/presentation/brand_name\",\n  \"value\": \"new_brand_name\"\n  },\n  {\n  \"op\": \"remove\",\n  \"path\": \"/flow_config/landing_page_type\"\n  }\n]",
+          "Example": "[{\"op\":\"add\",\"path\":\"/presentation/brand_name\",\"value\":\"new_brand_name\"},{\"op\":\"remove\",\"path\":\"/flow_config/landing_page_type\"}]",
           "Nullable": false,
           "IsArray": true,
           "IsMap": false,
@@ -680,7 +681,7 @@
             {
               "IsNull": false,
               "Name": "Body",
-              "Value": "[\n  {\n  \"op\": \"add\",\n  \"path\": \"/presentation/brand_name\",\n  \"value\": \"new_brand_name\"\n  },\n  {\n  \"op\": \"remove\",\n  \"path\": \"/flow_config/landing_page_type\"\n  }\n]"
+              "Value": "[{\"op\":\"add\",\"path\":\"/presentation/brand_name\",\"value\":\"new_brand_name\"},{\"op\":\"remove\",\"path\":\"/flow_config/landing_page_type\"}]"
             },
             {
               "IsNull": false,
@@ -2402,7 +2403,8 @@
     "GenerateAdvancedDocs": true,
     "StoreTimezoneInformation": false,
     "UnderscoreNumbers": true,
-    "UseSingletonPattern": true
+    "UseSingletonPattern": true,
+    "IgnoreIfNullJson": false
   },
   "Errors": [],
   "TestGenSettings": {
